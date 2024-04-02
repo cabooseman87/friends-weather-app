@@ -29,7 +29,7 @@ $zipCodes = [
         'zip' => '83616',
         'city' => 'Eagle',
         'timezone' => 'America/Boise',
-        'color' => 'pink'
+        'color' => 'gold'
     ],
 ];
 
