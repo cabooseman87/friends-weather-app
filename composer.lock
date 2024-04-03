@@ -1,0 +1,73 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "2356745806411f8c7d7af50162f6cafc",
+    "packages": [
+        {
+            "name": "probablyrational/random-name-generator",
+            "version": "v2.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ProbablyRational/random-name-generator.git",
+                "reference": "18386be4c388d698b79a7979093525c23036741f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ProbablyRational/random-name-generator/zipball/18386be4c388d698b79a7979093525c23036741f",
+                "reference": "18386be4c388d698b79a7979093525c23036741f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~5.6 || ~7.0 || ~8.0"
+            },
+            "require-dev": {
+                "cinam/randomizer": ">=1.1.1,<2.0",
+                "phpunit/phpunit": "~5.0",
+                "satooshi/php-coveralls": "~1.0",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ProbablyRational\\RandomNameGenerator\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Zachary Claret-Scott",
+                    "email": "zachary.claretscott@probablyrational.com",
+                    "role": "Contributer"
+                }
+            ],
+            "description": "A library to create interesting, sometimes entertaining, random names. (Based on nubs/random-name-generator)",
+            "keywords": [
+                "alliteration",
+                "generator",
+                "random",
+                "sketchy",
+                "video game"
+            ],
+            "support": {
+                "issues": "https://github.com/ProbablyRational/random-name-generator/issues",
+                "source": "https://github.com/ProbablyRational/random-name-generator/tree/v2.2.3"
+            },
+            "time": "2022-01-22T10:48:29+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}

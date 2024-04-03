@@ -1,0 +1,19 @@
+{
+    "name": "rdaniel.carroll/ready_fight",
+    "description": "fight club",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "RdanielCarroll\\ReadyFight\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Daniel Carroll",
+            "email": "ibuilduadmire@gmail.com"
+        }
+    ],
+    "require": {
+        "probablyrational/random-name-generator": "^2.2"
+    }
+}
