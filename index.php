@@ -18,11 +18,18 @@ $teamsProcessed = 0;
 while ($teamsProcessed < $teams) {
 
     $membersProcessed = 0;
-    $teamName         = "The ".(new BeastBuilder)->makeName()." Team";
+    $teamName         = "The " . (new BeastBuilder)->makeName() . " Team";
+    if (str_starts_with($teamName, 'The The ')) {
+        $teamName = substr($teamName, 4);
+    }
 
     while ($membersProcessed < $teamSize) {
 
-        $fighters[$teamName][] = (new BeastBuilder)->makeBeast('fighter');
+        try {
+            $fighters[$teamName][] = (new BeastBuilder)->makeBeast('fighter');
+        } catch (Exception $e) {
+            print $e->getMessage();
+        }
 
         $membersProcessed++;
     }
@@ -31,7 +38,11 @@ while ($teamsProcessed < $teams) {
 }
 
 
-$monster          = (new BeastBuilder)->makeBeast('monster');
+try {
+    $monster = (new BeastBuilder)->makeBeast('monster');
+} catch (Exception $e) {
+    print $e->getMessage();
+}
 $battlingTeam     = array_rand($fighters, 1);
 $battlingMembers  = array_rand($fighters[$battlingTeam], $participants);
 $battlingFighters = [];
@@ -41,13 +52,15 @@ foreach ($battlingMembers as $battlingMember){
 }
 
 print "<h1>The Epic battle between <span style=\"color:green\">good</span> and <span style=\"color:red\">not so good</span></h1>";
-print "<h3><span style=\"color:green\">{$teamName}</span> VS <span style=\"color:red\">{$monster->getName()}</span></h3>";
+print "<h3><span style=\"color:#bada55\">{$teamName}</span> VS <span style=\"color:red\">{$monster->getName()}</span></h3>";
 
 $roundsFought = 0;
 
 
+$monsterDead = FALSE;
+$fightersDead = FALSE;
 
-while ($roundsFought < $rounds) {
+while ($roundsFought < $rounds && $monsterDead == FALSE && $fightersDead == FALSE) {
 
     $speeds = [];
 
@@ -55,6 +68,7 @@ while ($roundsFought < $rounds) {
 
     print "<h2>Round {$roundsFought} Fight!</h2>";
 
+    //First round surprise attack!!!
     if ($roundsFought === 1) {
         $roundSpeedA = 100;
         $roundSpeedB = 100;
@@ -93,11 +107,14 @@ while ($roundsFought < $rounds) {
             $results          = (new Octagon)->monsterAttack($monster, $battlingFighters);
             $monster          = $results['monster'];
             $battlingFighters = $results['fighters'];
+            $fightersDead = $results['fighters are dead'];
 
         } else {
-
-            $results = (new Octagon)->fighterAttack($monster, $value['fighter']);
-            $monster = $results['monster'];
+            if (!$monsterDead) {
+                $results = (new Octagon)->fighterAttack($monster, $value['fighter']);
+                $monster = $results['monster'];
+                $monsterDead = $results['monster is dead'];
+            }
         }
     }
 }
